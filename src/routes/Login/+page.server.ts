@@ -1,11 +1,11 @@
-import pocketbaseEs from 'pocketbase';
+import Pocketbase from 'pocketbase';
 import type { Actions, PageServerLoad } from './$types';
 
 const usersString = 'users';
 const userIdString = 'userid';
 
 export const load: PageServerLoad = async ({ cookies }) => {
-    const pb = new pocketbaseEs('localhost:8090');
+    const pb = new Pocketbase('http://127.0.0.1:8090/');
 
     const userid = cookies.get(userIdString);
     if (userid){
@@ -16,10 +16,8 @@ export const load: PageServerLoad = async ({ cookies }) => {
 };
 
 export const actions: Actions = {
-    register: async ({ cookies, request }) => {
-        console.log('Im here!');
+    default: async ({ cookies, request }) => {
         const data = await request.formData();
-        console.log(data);
         const email = data.get('email');
         const password = data.get('password');
         const passwordVerified = data.get('passwordVerified');
@@ -31,12 +29,14 @@ export const actions: Actions = {
             name: email?.slice(0, 5)
         };
 
-        const pb = new pocketbaseEs('localhost:8090');
-        const newUser = await pb.collection(usersString).create(user);
-        cookies.set(userIdString, newUser.id);
-        return {success: true};
-    },
-    login: async({ cookies, request}) => {
-        throw new Error('Not implemented');
+        const pb = new Pocketbase('http://127.0.0.1:8090/');
+        try {
+            const newUser = await pb.collection(usersString).create(user);
+            cookies.set(userIdString, newUser.id);
+            return {success: true};
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
