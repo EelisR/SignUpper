@@ -1,9 +1,32 @@
-<nav>
-  <ul>
-    <li class="header-item"><a href="/">Home</a></li>
-    <li class="header-item"><a href="/Signups">Signups</a></li>
-    <li class="header-item"><a href="/Login">USER</a></li>
-  </ul>
-</nav>
+<script lang="ts">
+  import {Navbar, Nav, NavItem, NavLink, NavbarBrand, Container, Row, Col } from 'sveltestrap/src';
+</script>
 
-<slot />
+<Navbar>
+  <NavbarBrand href="/">
+    SignUpper
+  </NavbarBrand>
+  <Nav class="ms-auto">
+    <NavItem>
+      <NavLink href="/">Home</NavLink>
+    </NavItem>
+    <NavItem>
+      <NavLink href="Signups">Signups</NavLink>
+    </NavItem>
+    <NavItem>
+      <NavLink href="User">User</NavLink>
+    </NavItem>
+  </Nav>
+</Navbar>
+
+<main class="content">
+  <slot />
+</main>
+
+<style>
+  main.content{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+  }
+</style>
