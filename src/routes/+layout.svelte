@@ -1,32 +1,21 @@
 <script lang="ts">
-  import {Navbar, Nav, NavItem, NavLink, NavbarBrand, Container, Row, Col } from 'sveltestrap/src';
+	import Navbar from '../lib/Navbar.svelte';
+	import type { PageData } from './$types';
+
+  export let data: PageData;
 </script>
 
-<Navbar>
-  <NavbarBrand href="/">
-    SignUpper
-  </NavbarBrand>
-  <Nav class="ms-auto">
-    <NavItem>
-      <NavLink href="/">Home</NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink href="Signups">Signups</NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink href="User">User</NavLink>
-    </NavItem>
-  </Nav>
-</Navbar>
+<Navbar loggedIn={data.loggedIn}/>
 
-<main class="content">
-  <slot />
+<main>
+	<slot />
 </main>
 
 <style>
-  main.content{
-    margin: auto;
-    width: 50%;
+  main {
     text-align: center;
+    max-width: 60%;
+    margin: auto;
+    margin-top: 5em;
   }
 </style>
