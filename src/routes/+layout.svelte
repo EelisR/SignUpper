@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Navbar from '../lib/Navbar.svelte';
+	import Navbar from '../lib/components/Navbar.svelte';
 	import type { PageData } from './$types';
 
   export let data: PageData;
@@ -17,5 +17,6 @@
     max-width: 60%;
     margin: auto;
     margin-top: 5em;
+    min-height: 70vh;
   }
 </style>

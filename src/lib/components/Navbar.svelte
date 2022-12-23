@@ -12,7 +12,7 @@
       <NavLink href="/">Home</NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="/Signups">Signups</NavLink>
+      <NavLink href="/Events">Events</NavLink>
     </NavItem>
     <NavItem>
       <NavLink href="/User">{!loggedIn ? 'Log in or register' : 'Account'}</NavLink>

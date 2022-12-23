@@ -4,9 +4,9 @@ export const actions: Actions = {
     default: async ({locals, request}) => {
         const data = await request.formData();
         const userData = Object.fromEntries(data); 
-
+        debugger;
         // Some validation here
-        if (!userData.email || !userData.password){
+        if (!userData.email || !userData.password || userData.password !== userData.passwordConfirm){
             return {
                 success: false
             };
@@ -20,6 +20,6 @@ export const actions: Actions = {
             console.log(error);
             return {error}
         }
-        throw redirect(300, '/Signups');
+        throw redirect(300, '/Events');
     }
 }
