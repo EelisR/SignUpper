@@ -1,4 +1,5 @@
 import { SECRET_DB } from '$env/static/private';
+import { serializeToPojo } from '$lib/server/utils';
 import type { Handle } from '@sveltejs/kit';
 import pocketbaseEs from 'pocketbase';
 
@@ -10,7 +11,7 @@ export const handle = (async ({ event , resolve }) => {
   if (pb.authStore.isValid){
     try {
       pb.collection("users").authRefresh();
-      event.locals.user = pb.authStore.model;
+      event.locals.user = serializeToPojo(pb.authStore.model);
     } catch (_)
     {
       pb.authStore.clear();
