@@ -10,6 +10,7 @@ export const load = (async () => {
 export const actions: Actions = {
     default: async ({ locals, request }) => {
         const data = Object.fromEntries(await request.formData());
+        
         // Validation here
         if (!locals.user) {
             return buildError('No user is signed in.');

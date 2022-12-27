@@ -10,7 +10,7 @@
     <p>Capacity: <span>{event.capacity}</span></p>
   </div>
   <div class="button">
-    <Button>Open</Button>
+    <Button href="/Events/{event.id}">Open</Button>
   </div>
 </div>
 
