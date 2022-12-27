@@ -1,23 +1,38 @@
 <script lang="ts">
+  import type { Admin, Record } from 'pocketbase';
 	import EventListItem from './EventListItem.svelte';
 	export let events: App.SignupEvent[];
+  export let user: Record | Admin | null;
+
+  const sorted = events.sort((a, b) => {
+    return a.date.valueOf() - b.date.valueOf();
+  });
 </script>
 
-<table class="event-list">
-	{#each events as event}
-		<tr>
-			<EventListItem {event} />
-		</tr>
-	{/each}
-</table>
+<div class="events">
+  <table class="event-list">
+    {#each sorted as event}
+      <tr>
+        <EventListItem {event} />
+      </tr>
+    {/each}
+  </table>
+  {#if user}
+    <button style="height: 2em"><a href="/Events/Create">Create event</a></button>
+  {/if}  
+</div>
 
 <style>
   table.event-list {
-    height: 100%;
+    height: 100vh;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     margin: auto;
     align-items: center;
     justify-content: space-around;
+  }
+  .events {
+    display: flex;
   }
 </style>

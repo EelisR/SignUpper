@@ -4,17 +4,26 @@
 </script>
 
 <div class="event-list-item">
-  <p>Event name: <span>{event.name}</span></p>
-  <p>Happening on: <span>{event.date}</span></p>
-  <p>Capacity: <span>{event.capacity}</span></p>
-  <Button>Open</Button>
+  <div class="info">
+    <p>Event name: <span>{event.name}</span></p>
+    <p>Happening on: <span>{event.date}</span></p>
+    <p>Capacity: <span>{event.capacity}</span></p>
+  </div>
+  <div class="button">
+    <Button>Open</Button>
+  </div>
 </div>
 
 <style>
   div.event-list-item {
-    display: grid;
+    display: flex;
     text-align: left;
-    border: 1px solid grey;
+    border: 0.1em solid grey;
     border-radius: 10px;
+  }
+  .button {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 </style>

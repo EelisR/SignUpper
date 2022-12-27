@@ -4,11 +4,12 @@
     
     export let data: PageData;
     const events = data.events;
+    const user = data.user ?? null;
 </script>
 
 
 {#if events && events.length > 0}
-    <EventList events={events} />
+    <EventList events={events} user={user}/>
 {:else}
     <h1>No open events at the moment</h1>
 {/if}

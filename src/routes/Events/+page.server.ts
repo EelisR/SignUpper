@@ -7,7 +7,10 @@ export const load: PageServerLoad = async ({locals}) => {
         const eventsList = await locals.pb.collection(EventCollection).getFullList<App.SignupEvent>();
         const events: App.SignupEvent[] = toPojos(eventsList);
         
-        return { events: events}
+        return { 
+            events: events,
+            user: locals.user
+        }
     } catch (error) {
         console.log(error);
         return {};

@@ -4,7 +4,6 @@ export const actions: Actions = {
     default: async ({locals, request}) => {
         const data = await request.formData();
         const userData = Object.fromEntries(data); 
-        debugger;
         // Some validation here
         if (!userData.email || !userData.password || userData.password !== userData.passwordConfirm){
             return {

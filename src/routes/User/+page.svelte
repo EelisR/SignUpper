@@ -2,10 +2,9 @@
 	import type { PageData } from './$types';
 	import { Button } from 'sveltestrap/src';
 	export let data: PageData;
-	console.log(data);
 </script>
 
-{#if data.loggedIn}
+{#if data.user}
 	<form method="POST">
 		<Button type="submit">Log out</Button>
 	</form>

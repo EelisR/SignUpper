@@ -5,7 +5,7 @@
   export let data: PageData;
 </script>
 
-<Navbar loggedIn={data.loggedIn}/>
+<Navbar loggedIn={data.user != null}/>
 
 <main>
 	<slot />

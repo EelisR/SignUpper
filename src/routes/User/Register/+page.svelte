@@ -4,19 +4,19 @@
 
 <form method="POST">
 	<FormGroup>
-    <Label>
+    <Label for="email">
       Email address
       <Input placeholder="Email address" type="email" name="email"/>
     </Label>
 	</FormGroup>
 	<FormGroup>
-    <Label>
+    <Label for="password">
       Please enter password
       <Input placeholder="Password" type="password" name="password"/>
     </Label>
 	</FormGroup>
 	<FormGroup>
-    <Label>
+    <Label for="passwordConfirm">
       Please repeat the password
       <Input placeholder="Repeat password" type="password" name="passwordConfirm"/>
     </Label>
