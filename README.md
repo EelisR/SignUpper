@@ -1,38 +1,9 @@
-# create-svelte
+# SignUpper
+This is a demo/POC project of an event sign up service, with pretty barebones implementation and styling.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+It has been done with SvelteKit and PocketBase, both are new technologies (for me)
 
-## Creating a project
+The idea is to create a more advanced backend service that allows keeping track of the people in the waitlist to the event and 
+send them a signup link when someone cancels their signup. 
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Just an experimenting side project :)
