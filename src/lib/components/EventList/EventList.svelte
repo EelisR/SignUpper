@@ -2,7 +2,6 @@
   import type { Admin, Record } from 'pocketbase';
 	import EventListItem from './EventListItem.svelte';
 	export let events: App.SignupEvent[];
-  export let user: Record | Admin | null;
 
   const sorted = events.sort((a, b) => {
     return a.date.valueOf() - b.date.valueOf();
@@ -17,9 +16,6 @@
       </tr>
     {/each}
   </table>
-  {#if user}
-    <button style="height: 2em"><a href="/Events/Create">Create event</a></button>
-  {/if}  
 </div>
 
 <style>
